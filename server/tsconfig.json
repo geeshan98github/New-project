@@ -1,0 +1,54 @@
+{
+  "include": [
+    "./**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "test/coverage"
+  ],
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "declarationMap": false,
+    "declaration": false,
+    "pretty": false,
+    "baseUrl": ".",
+    "types": [
+      "node"
+    ],
+    "skipLibCheck": true,
+    "outDir": "dist",
+    "importHelpers": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "lib": [
+      "es5",
+      "es6",
+      "dom",
+      "es2015.core",
+      "es2015.collection",
+      "es2015.generator",
+      "es2015.iterable",
+      "es2015.promise",
+      "es2015.proxy",
+      "es2015.reflect",
+      "es2015.symbol",
+      "es2015.symbol.wellknown",
+      "esnext.asynciterable"
+    ]
+  },
+  "ts-node": {
+    "transpileOnly": true,
+//    "transpiler": "ts-node/transpilers/swc-experimental"
+    "swc": true
+  }
+}

@@ -1,0 +1,64 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("SP_DATABASE_URL")
+}
+
+model User {
+  id                Int                 @id @default(autoincrement())
+  type              String
+  name              String
+  age               String
+  gender            String
+  UserFamilyDetails UserFamilyDetails[]
+}
+
+model Coustomer {
+  id                     Int                      @id @default(autoincrement())
+  type                   String
+  name                   String
+  age                    String
+  gender                 String
+  CoustomerFamilyDetails CoustomerFamilyDetails[]
+}
+
+model Employee {
+  id                    Int                     @id @default(autoincrement())
+  name                  String
+  age                   String
+  gender                String
+  EmployeeFamilyDetails EmployeeFamilyDetails[]
+}
+
+model EmployeeFamilyDetails {
+  id         Int      @id @default(autoincrement())
+  name       String
+  age        String
+  gender     String
+  relation    String
+  employeeId Int
+  employee   Employee @relation(fields: [employeeId], references: [id])
+}
+
+model CoustomerFamilyDetails {
+  id          Int       @id @default(autoincrement())
+  name        String
+  age         String
+  gender      String
+  relation     String
+  coustomerId Int
+  coustomer   Coustomer @relation(fields: [coustomerId], references: [id])
+}
+
+model UserFamilyDetails {
+  id      Int    @id @default(autoincrement())
+  name    String
+  age     String
+  gender  String
+  relation String
+  userId  Int
+  user    User   @relation(fields: [userId], references: [id])
+}
